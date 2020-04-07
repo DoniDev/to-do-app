@@ -1,0 +1,29 @@
+{% extends 'tasks/base.html'%}
+{% block css %}
+    <style>
+       .container{
+           background-color:honeydew;
+       }
+        .cancelbtn {
+            color:white;
+
+        }
+        a:hover{
+            text-decoration: none;
+            color:white;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container  mt-5 p-3">
+        <p class="font-weight-bold">Are you sure you want to delete "{{item}}"?</p>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div>
+                <button type="submit" class="btn btn-secondary"><a class="cancelbtn"  href="{% url 'home' %}">Cancel</a></button>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>    
+        </form>
+    </div>
+{% endblock %}
